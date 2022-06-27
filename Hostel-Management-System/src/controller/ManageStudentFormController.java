@@ -5,11 +5,16 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ManageStudentFormController {
     public AnchorPane ManageStudentFormContext;
@@ -31,8 +36,7 @@ public class ManageStudentFormController {
     public TableColumn colDOB;
     public TableColumn colGender;
 
-    public void btnGoBackOnAction(ActionEvent actionEvent) {
-    }
+
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
     }
@@ -41,5 +45,13 @@ public class ManageStudentFormController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+    }
+
+
+
+    public void btnGoBackOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage =(Stage) ManageStudentFormContext.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"))));
+        stage.centerOnScreen();
     }
 }
