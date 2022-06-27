@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ManageRoomFormContext" prefHeight="520.0" prefWidth="789.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageRoomFormController">
+   <children>
+      <Label layoutX="14.0" layoutY="18.0" text="Date">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="44.0" text="Time">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="59.0" layoutY="18.0" text="2020/06/21">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="59.0" layoutY="44.0" text="08.34.12">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="-2.0" layoutY="68.0" prefHeight="2.0" prefWidth="789.0" />
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="708.0" layoutY="19.0" onAction="#btnGoBackOnAction" style="-fx-background-color: #34495e;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold Italic" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXTextField fx:id="txtRoomID" labelFloat="true" layoutX="23.0" layoutY="103.0" onKeyReleased="#textFields_Key_Released" prefHeight="32.0" prefWidth="150.0" promptText="Room ID">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="txtKeyMoney" labelFloat="true" layoutX="442.0" layoutY="103.0" onKeyReleased="#textFields_Key_Released" prefHeight="32.0" prefWidth="150.0" promptText="Key Money">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="619.0" layoutY="103.0" onKeyReleased="#textFields_Key_Released" prefHeight="32.0" prefWidth="150.0" promptText="QTY">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXButton fx:id="btnSave" buttonType="RAISED" focusTraversable="false" layoutX="23.0" layoutY="159.0" onAction="#btnSaveOnAction" ripplerFill="RED" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8; -fx-border-color: #ffffff; -fx-border-radius: 8;" text="Save">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXComboBox fx:id="cmbRoomType" labelFloat="true" layoutX="235.0" layoutY="106.0" prefHeight="27.0" prefWidth="150.0" promptText="Room Type" visibleRowCount="16" />
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" focusTraversable="false" layoutX="116.0" layoutY="159.0" onAction="#btnDeleteOnAction" ripplerFill="RED" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8; -fx-border-color: #ffffff; -fx-border-radius: 8;" text="Delete">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TableView fx:id="tblRoom" layoutX="19.0" layoutY="240.0" prefHeight="229.0" prefWidth="754.0">
+        <columns>
+          <TableColumn fx:id="colRoomID" prefWidth="154.0" text="Room ID" />
+          <TableColumn fx:id="colRoomType" prefWidth="238.0" text="Room Type" />
+            <TableColumn fx:id="colKeyMoney" prefWidth="207.0" text="Key Money" />
+            <TableColumn fx:id="colQty" prefWidth="154.0" text="QTY" />
+        </columns>
+      </TableView>
+      <Text fontSmoothingType="LCD" layoutX="285.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Room" wrappingWidth="306.9404296875">
+         <font>
+            <Font name="Arial Bold" size="38.0" />
+         </font>
+         <fill>
+            <RadialGradient centerY="0.2695575056011949" cycleMethod="REFLECT" focusDistance="-0.024390243902439046" radius="1.0">
+               <stops>
+                  <Stop color="#00d707" />
+                  <Stop color="#250eeb" offset="0.13725490196078433" />
+                  <Stop color="#7a172c" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Text>
+      <JFXButton buttonType="RAISED" layoutX="614.0" layoutY="163.0" prefHeight="27.0" prefWidth="160.0" text="+ N E W   R O O M" />
+   </children>
+</AnchorPane>

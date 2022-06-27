@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ManageStudentFormContext" prefHeight="606.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageStudentFormController">
+   <children>
+      <Label layoutX="16.0" layoutY="16.0" text="Date">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="42.0" text="Time">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="61.0" layoutY="16.0" text="2020/06/21">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="61.0" layoutY="42.0" text="08.34.12">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="761.0" layoutY="20.0" onAction="#btnGoBackOnAction" style="-fx-background-color: #34495e;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold Italic" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnSave" buttonType="RAISED" focusTraversable="false" layoutX="416.0" layoutY="197.0" onAction="#btnSaveOnAction" ripplerFill="RED" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8; -fx-border-color: #ffffff; -fx-border-radius: 8;" text="Save">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Separator layoutX="-3.0" layoutY="70.0" prefHeight="4.0" prefWidth="837.0" />
+      <JFXTextField fx:id="txtStudentID" labelFloat="true" layoutX="33.0" layoutY="126.0" onKeyReleased="#textFields_Key_Released" prefHeight="32.0" prefWidth="160.0" promptText="Studetn ID">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="218.0" layoutY="126.0" onKeyReleased="#textFields_Key_Released" prefHeight="32.0" prefWidth="160.0" promptText="Name">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="410.0" layoutY="126.0" onKeyReleased="#textFields_Key_Released" prefHeight="32.0" prefWidth="160.0" promptText="Address">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="626.0" layoutY="126.0" onKeyReleased="#textFields_Key_Released" prefHeight="32.0" prefWidth="160.0" promptText="Contact">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXDatePicker fx:id="txtDate" layoutX="32.0" layoutY="200.0" prefHeight="27.0" prefWidth="160.0" promptText="Date of Birth" />
+      <JFXComboBox fx:id="cmbGender" labelFloat="true" layoutX="212.0" layoutY="200.0" prefHeight="27.0" prefWidth="160.0" promptText="Gender" />
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" focusTraversable="false" layoutX="513.0" layoutY="197.0" onAction="#btnDeleteOnAction" ripplerFill="RED" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8; -fx-border-color: #ffffff; -fx-border-radius: 8;" text="Delete">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TableView fx:id="tblStudent" layoutX="16.0" layoutY="286.0" prefHeight="311.0" prefWidth="808.0">
+        <columns>
+          <TableColumn fx:id="colStudentID" prefWidth="103.0" text="Student ID" />
+          <TableColumn fx:id="colName" prefWidth="154.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="189.0" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="161.0" text="Contact" />
+            <TableColumn fx:id="colDOB" prefWidth="105.0" text="Date of Birth" />
+            <TableColumn fx:id="colGender" prefWidth="95.0" text="Gender" />
+        </columns>
+      </TableView>
+      <Text fontSmoothingType="LCD" layoutX="297.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Student" wrappingWidth="306.9404296875">
+         <font>
+            <Font name="Arial Bold" size="38.0" />
+         </font>
+         <fill>
+            <RadialGradient centerY="0.2695575056011949" cycleMethod="REFLECT" focusDistance="-0.024390243902439046" radius="1.0">
+               <stops>
+                  <Stop color="#00d707" />
+                  <Stop color="#250eeb" offset="0.13725490196078433" />
+                  <Stop color="#7a172c" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Text>
+      <JFXButton buttonType="RAISED" layoutX="635.0" layoutY="201.0" prefHeight="27.0" prefWidth="160.0" text="+ N E W S T U D E N T" />
+   </children>
+</AnchorPane>
