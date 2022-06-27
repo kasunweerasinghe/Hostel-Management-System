@@ -88,9 +88,9 @@ public class ManageStudentFormController {
         loadAllStudentDetails();
 
         Pattern idPattern = Pattern.compile("^(SI-)[0-9]{3,5}$");
-        Pattern namePattern = Pattern.compile("^[A-z]{3,}$");
+        Pattern namePattern = Pattern.compile("^[A-z ]{3,35}$");
         Pattern AddressPattern = Pattern.compile("^[A-z0-9 ,/]{4,20}$");
-        Pattern TPNumberPattern = Pattern.compile("^(?:7|0|(?:\\+94))[0-9]{9}$");
+        Pattern TPNumberPattern = Pattern.compile("^(077|071|078|075|031|076|011)-[0-9]{7}$");
 
         //add pattern and text to the map
         map.put(txtStudentID,idPattern);
