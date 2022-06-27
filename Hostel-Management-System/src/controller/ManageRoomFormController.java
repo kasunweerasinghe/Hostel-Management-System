@@ -13,16 +13,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import util.ValidationUtil;
 import view.tm.RoomTM;
 import view.tm.StudentTM;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class ManageRoomFormController {
     public AnchorPane ManageRoomFormContext;
@@ -39,6 +43,8 @@ public class ManageRoomFormController {
     public TableColumn colRoomType;
     public TableColumn colKeyMoney;
     public TableColumn colQty;
+    LinkedHashMap<JFXTextField, Pattern> map = new LinkedHashMap<>();
+
 
 
     ManageRoomBO manageRoomBO = (ManageRoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGEROOMS);
@@ -73,6 +79,18 @@ public class ManageRoomFormController {
         });
 
         loadAllRoomDetails();
+
+        Pattern idPattern = Pattern.compile("^(RI-)[0-9]{3,5}$");
+        Pattern keyMoneyPattern = Pattern.compile("^[0-9]{4,6}$");
+        Pattern qtyPattern = Pattern.compile("^[0-9]{1,3}$");
+
+
+        //add pattern and text to the map
+        map.put(txtRoomID,idPattern);
+        map.put(txtKeyMoney,keyMoneyPattern);
+        map.put(txtQty,qtyPattern);
+
+
     }
 
     private void loadAllRoomDetails() {
@@ -149,15 +167,6 @@ public class ManageRoomFormController {
 
     }
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-//        Alert alert=new Alert(Alert.AlertType.WARNING,"Are You Sure..?", ButtonType.YES,ButtonType.NO);
-//        Optional<ButtonType> buttonType = alert.showAndWait();
-//        if (buttonType.get().equals(ButtonType.YES)){
-//            if (manageRoomBO.deleteRoom(cmbRoomType.getValue())) {
-//                new Alert(Alert.AlertType.CONFIRMATION, "Deleted..!!").show();
-//                tblRoom.getItems().remove(new RoomTM(cmbRoomType.getValue(),cmbRoomType.getValue(),txtKeyMoney.getText(),Integer.parseInt(txtQty.getText())));
-//            }
-//        }
-
         String roomId = tblRoom.getSelectionModel().getSelectedItem().getRoomId();
 
         Alert alert=new Alert(Alert.AlertType.WARNING,"Are You Sure ?", ButtonType.YES,ButtonType.NO);
@@ -174,6 +183,17 @@ public class ManageRoomFormController {
 
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
+        ValidationUtil.validate(map,btnSave);
+
+        if (keyEvent.getCode()== KeyCode.ENTER){
+            Object response = ValidationUtil.validate(map,btnSave);
+            if (response instanceof JFXTextField){
+                JFXTextField textField = (JFXTextField) response;
+                textField.requestFocus();
+            }else if (response instanceof Boolean){
+
+            }
+        }
     }
 
 
