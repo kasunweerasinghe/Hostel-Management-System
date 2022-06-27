@@ -10,6 +10,9 @@ import dto.RoomDTO;
 import dto.StudentDTO;
 import entity.Room;
 import entity.Student;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,10 +23,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import view.tm.ReservationTM;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 public class MakeReservationFormController {
@@ -49,6 +56,7 @@ public class MakeReservationFormController {
     MakeReservationBO makeReservationBO = (MakeReservationBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MAKERESERVATION);
 
     public void initialize() {
+        loadDateAndTime();
         tblReservationDetail.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("resID"));
         tblReservationDetail.getColumns().get(1).setCellValueFactory(new PropertyValueFactory("date"));
         tblReservationDetail.getColumns().get(2).setCellValueFactory(new PropertyValueFactory("roomId"));
@@ -179,6 +187,21 @@ public class MakeReservationFormController {
             txtQty.clear();
             lblReservationID.setText(generateNewReservationID());
         }
+
+    }
+    private void loadDateAndTime() {
+        lblDate.setText(new SimpleDateFormat("yyy-MM-dd").format(new Date()));
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e->{
+            LocalTime currentTime = LocalTime.now();
+            lblTime.setText(currentTime.getHour()+":"+
+                    currentTime.getMinute()+":"+
+                    currentTime.getSecond());
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
+
 
     }
 

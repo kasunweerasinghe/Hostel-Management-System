@@ -7,6 +7,9 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.RoomDTO;
 import dto.StudentDTO;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -17,12 +20,16 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import util.ValidationUtil;
 import view.tm.RoomTM;
 import view.tm.StudentTM;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
@@ -50,6 +57,8 @@ public class ManageRoomFormController {
     ManageRoomBO manageRoomBO = (ManageRoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGEROOMS);
 
     public void initialize() {
+        loadDateAndTime();
+
         tblRoom.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("roomId"));
         tblRoom.getColumns().get(1).setCellValueFactory(new PropertyValueFactory("type"));
         tblRoom.getColumns().get(2).setCellValueFactory(new PropertyValueFactory("keyMoney"));
@@ -221,6 +230,21 @@ public class ManageRoomFormController {
         txtKeyMoney.requestFocus();
 
 
+
+    }
+
+    private void loadDateAndTime() {
+        lblDate.setText(new SimpleDateFormat("yyy-MM-dd").format(new Date()));
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e->{
+            LocalTime currentTime = LocalTime.now();
+            lblTime.setText(currentTime.getHour()+":"+
+                    currentTime.getMinute()+":"+
+                    currentTime.getSecond());
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
 
     }
 }

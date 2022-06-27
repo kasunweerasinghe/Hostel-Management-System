@@ -7,6 +7,9 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dto.StudentDTO;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,11 +19,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import util.ValidationUtil;
 import view.tm.StudentTM;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
@@ -51,6 +58,9 @@ public class ManageStudentFormController {
 
 
     public void initialize(){
+        loadDateAndTime();
+
+
         tblStudent.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("studentId"));
         tblStudent.getColumns().get(1).setCellValueFactory(new PropertyValueFactory("name"));
         tblStudent.getColumns().get(2).setCellValueFactory(new PropertyValueFactory("address"));
@@ -221,5 +231,20 @@ public class ManageStudentFormController {
         btnSave.setDisable(false);
         btnSave.setText("Save");
         txtStudentID.requestFocus();
+    }
+
+    private void loadDateAndTime() {
+        lblDate.setText(new SimpleDateFormat("yyy-MM-dd").format(new Date()));
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e->{
+            LocalTime currentTime = LocalTime.now();
+            lblTime.setText(currentTime.getHour()+":"+
+                    currentTime.getMinute()+":"+
+                    currentTime.getSecond());
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
+
     }
 }

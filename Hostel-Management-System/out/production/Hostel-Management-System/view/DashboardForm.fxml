@@ -92,7 +92,7 @@
             <Image url="@../assert/view-details-svgrepo-com.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="679.0" layoutY="249.0" onAction="#btnReservationDetail" ripplerFill="RED" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8; -fx-border-color: #ffffff; -fx-border-radius: 8;" text="Details">
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="639.0" layoutY="249.0" onAction="#btnReservationDetail" ripplerFill="RED" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8; -fx-border-color: #ffffff; -fx-border-radius: 8;" text="ReservationDetails">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -114,7 +114,7 @@
             </RadialGradient>
          </fill>
       </Text>
-      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="467.0" layoutY="249.0" onAction="#btnBookRoomOnAction" ripplerFill="RED" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8; -fx-border-color: #ffffff; -fx-border-radius: 8;" text="Room">
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="451.0" layoutY="249.0" onAction="#btnBookRoomOnAction" ripplerFill="RED" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8; -fx-border-color: #ffffff; -fx-border-radius: 8;" text="Book Room">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>

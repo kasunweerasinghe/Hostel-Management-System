@@ -44,7 +44,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Separator layoutX="2.0" layoutY="70.0" prefHeight="4.0" prefWidth="837.0" />
+      <Separator layoutX="2.0" layoutY="67.0" prefHeight="4.0" prefWidth="837.0" />
       <Text fontSmoothingType="LCD" layoutX="238.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make Reservation" wrappingWidth="414.9404296875">
          <font>
             <Font name="Arial Bold" size="38.0" />
@@ -102,7 +102,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="btnReservation" layoutX="751.0" layoutY="197.0" onAction="#btnReservationOnAction" prefHeight="27.0" prefWidth="79.0" text="B O O K">
+      <JFXButton fx:id="btnReservation" layoutX="738.0" layoutY="197.0" onAction="#btnReservationOnAction" prefHeight="27.0" prefWidth="79.0" style="-fx-background-color: #27ae60; -fx-background-radius: 8; -fx-border-color: #000000; -fx-border-radius: 8;" text="B O O K" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
