@@ -12,15 +12,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import util.ValidationUtil;
 import view.tm.StudentTM;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class ManageStudentFormController {
     public AnchorPane ManageStudentFormContext;
@@ -41,9 +45,10 @@ public class ManageStudentFormController {
     public TableColumn colContact;
     public TableColumn colDOB;
     public TableColumn colGender;
-
+    LinkedHashMap<JFXTextField, Pattern> map = new LinkedHashMap<>();
 
     ManageStudentsBO manageStudentsBO = (ManageStudentsBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGESTUDENTS);
+
 
     public void initialize(){
         tblStudent.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("studentId"));
@@ -53,13 +58,6 @@ public class ManageStudentFormController {
         tblStudent.getColumns().get(4).setCellValueFactory(new PropertyValueFactory("dob"));
         tblStudent.getColumns().get(5).setCellValueFactory(new PropertyValueFactory("gender"));
 
-
-//        colStudentID.setCellFactory(new PropertyValueFactory("studentId"));
-//        colName.setCellFactory(new PropertyValueFactory("name"));
-//        colAddress.setCellFactory(new PropertyValueFactory("address"));
-//        colContact.setCellFactory(new PropertyValueFactory("contactNo"));
-//        colDOB.setCellFactory(new PropertyValueFactory("dob"));
-//        colGender.setCellFactory(new PropertyValueFactory("gender"));
 
         cmbGender.getItems().add("Male");
         cmbGender.getItems().add("FeMale");
@@ -88,6 +86,17 @@ public class ManageStudentFormController {
         });
 
         loadAllStudentDetails();
+
+        Pattern idPattern = Pattern.compile("^(SI-)[0-9]{3,5}$");
+        Pattern namePattern = Pattern.compile("^[A-z]{3,}$");
+        Pattern AddressPattern = Pattern.compile("^[A-z0-9 ,/]{4,20}$");
+        Pattern TPNumberPattern = Pattern.compile("^(?:7|0|(?:\\+94))[0-9]{9}$");
+
+        //add pattern and text to the map
+        map.put(txtStudentID,idPattern);
+        map.put(txtName,namePattern);
+        map.put(txtAddress,AddressPattern);
+        map.put(txtContact,TPNumberPattern);
 
     }
 
@@ -148,6 +157,17 @@ public class ManageStudentFormController {
 
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
+        ValidationUtil.validate(map,btnSave);
+
+        if (keyEvent.getCode()== KeyCode.ENTER){
+            Object response = ValidationUtil.validate(map,btnSave);
+            if (response instanceof JFXTextField){
+                JFXTextField textField = (JFXTextField) response;
+                textField.requestFocus();
+            }else if (response instanceof Boolean){
+
+            }
+        }
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
