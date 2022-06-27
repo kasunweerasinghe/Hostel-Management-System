@@ -35,15 +35,17 @@ public class DashboardFormController {
 
     }
 
-    public void btnBookRoom(ActionEvent actionEvent) throws IOException {
-        Stage stage =(Stage) DashboardFormContext.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MakeReservationForm.fxml"))));
-        stage.centerOnScreen();
-    }
+
 
     public void btnReservationDetail(ActionEvent actionEvent) throws IOException {
         Stage stage =(Stage) DashboardFormContext.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/ReservationDetailForm.fxml"))));
+        stage.centerOnScreen();
+    }
+
+    public void btnBookRoomOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage =(Stage) DashboardFormContext.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MakeReservationForm.fxml"))));
         stage.centerOnScreen();
     }
 }

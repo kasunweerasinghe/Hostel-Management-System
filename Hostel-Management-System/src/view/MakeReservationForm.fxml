@@ -1,14 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.MakeReservationFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="StudentRegisterFormContext" prefHeight="584.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MakeReservationFormController">
+   <children>
+      <Label layoutX="21.0" layoutY="16.0" text="Date">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="42.0" text="Time">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="66.0" layoutY="16.0" text="2020/06/21">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="66.0" layoutY="42.0" text="08.34.12">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="766.0" layoutY="20.0" onAction="#btnGoBackOnAction" style="-fx-background-color: #34495e;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold Italic" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Separator layoutX="2.0" layoutY="70.0" prefHeight="4.0" prefWidth="837.0" />
+      <Text fontSmoothingType="LCD" layoutX="238.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make Reservation" wrappingWidth="414.9404296875">
+         <font>
+            <Font name="Arial Bold" size="38.0" />
+         </font>
+         <fill>
+            <RadialGradient centerY="0.2695575056011949" cycleMethod="REFLECT" focusDistance="-0.024390243902439046" radius="1.0">
+               <stops>
+                  <Stop color="#00d707" />
+                  <Stop color="#250eeb" offset="0.13725490196078433" />
+                  <Stop color="#7a172c" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Text>
+      <JFXComboBox fx:id="cmbStudentID" labelFloat="true" layoutX="14.0" layoutY="147.0" prefHeight="27.0" prefWidth="106.0" promptText="Student ID" />
+      <JFXTextField fx:id="txtName" editable="false" labelFloat="true" layoutX="149.0" layoutY="147.0" prefHeight="27.0" prefWidth="114.0" promptText="Name">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtAddress" editable="false" labelFloat="true" layoutX="292.0" layoutY="147.0" prefHeight="27.0" prefWidth="114.0" promptText="Address">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtContact" editable="false" labelFloat="true" layoutX="445.0" layoutY="147.0" prefHeight="27.0" prefWidth="114.0" promptText="Contact">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtDOB" editable="false" labelFloat="true" layoutX="603.0" layoutY="147.0" prefHeight="27.0" prefWidth="114.0" promptText="DOB">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox fx:id="cmbGender" labelFloat="true" layoutX="740.0" layoutY="147.0" prefHeight="27.0" prefWidth="90.0" promptText="Gender" />
+      <JFXComboBox fx:id="cmbRoomID" labelFloat="true" layoutX="14.0" layoutY="197.0" prefHeight="27.0" prefWidth="106.0" promptText="Room ID" />
+      <JFXTextField fx:id="txtType" editable="false" labelFloat="true" layoutX="149.0" layoutY="197.0" prefHeight="27.0" prefWidth="114.0" promptText="Type">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtKeyMoney" editable="false" labelFloat="true" layoutX="292.0" layoutY="197.0" prefHeight="27.0" prefWidth="114.0" promptText="Key Money">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtQty" editable="false" labelFloat="true" layoutX="445.0" layoutY="197.0" prefHeight="27.0" prefWidth="114.0" promptText="Qty">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtPaidAmount" labelFloat="true" layoutX="603.0" layoutY="197.0" prefHeight="27.0" prefWidth="114.0" promptText="Paid Amount">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btnReservation" layoutX="751.0" layoutY="197.0" onAction="#btnReservationOnAction" prefHeight="27.0" prefWidth="79.0" text="B O O K">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lblReservationID" layoutX="766.0" layoutY="94.0" prefHeight="32.0" prefWidth="61.0">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblReservationDetail" layoutX="20.0" layoutY="288.0" prefHeight="271.0" prefWidth="802.0">
+        <columns>
+          <TableColumn prefWidth="140.0" text="Reservation ID" />
+          <TableColumn prefWidth="157.0" text="Date" />
+            <TableColumn prefWidth="160.0" text="Room ID" />
+            <TableColumn prefWidth="171.0" text="Student ID" />
+            <TableColumn prefWidth="172.0" text="Status" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
