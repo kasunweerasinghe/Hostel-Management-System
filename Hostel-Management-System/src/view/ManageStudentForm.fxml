@@ -108,6 +108,6 @@
             </RadialGradient>
          </fill>
       </Text>
-      <JFXButton buttonType="RAISED" layoutX="635.0" layoutY="201.0" prefHeight="27.0" prefWidth="160.0" text="+ N E W S T U D E N T" />
+      <JFXButton buttonType="RAISED" layoutX="635.0" layoutY="201.0" onAction="#btnAddNewStudentOnAction" prefHeight="27.0" prefWidth="160.0" text="+ N E W S T U D E N T" />
    </children>
 </AnchorPane>

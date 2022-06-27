@@ -1,0 +1,10 @@
+package bo.custom;
+
+import bo.SuperBO;
+import entity.User;
+
+import java.util.List;
+
+public interface LoginBO extends SuperBO {
+    List<User> getAllUsers();
+}
