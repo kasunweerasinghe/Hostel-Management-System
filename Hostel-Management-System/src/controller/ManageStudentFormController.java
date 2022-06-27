@@ -107,6 +107,7 @@ public class ManageStudentFormController {
         txtAddress.clear();
         txtDate.setValue(null);
         cmbGender.getSelectionModel().clearSelection();
+
         txtName.setDisable(true);
         txtStudentID.setDisable(true);
         txtAddress.setDisable(true);
@@ -207,6 +208,7 @@ public class ManageStudentFormController {
         txtContact.setDisable(false);
         txtDate.setDisable(false);
         cmbGender.setDisable(false);
+
         txtStudentID.clear();
         txtName.clear();
         txtAddress.clear();
@@ -214,6 +216,7 @@ public class ManageStudentFormController {
         txtDate.setValue(null);
         cmbGender.getSelectionModel().clearSelection();
         tblStudent.getSelectionModel().clearSelection();
+
         btnDelete.setDisable(true);
         btnSave.setDisable(false);
         btnSave.setText("Save");
