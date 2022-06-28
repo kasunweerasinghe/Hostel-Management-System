@@ -57,7 +57,7 @@ public class ManageStudentFormController {
     ManageStudentsBO manageStudentsBO = (ManageStudentsBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGESTUDENTS);
 
 
-    public void initialize(){
+    public void initialize() throws Exception {
         loadDateAndTime();
 
 
@@ -128,7 +128,7 @@ public class ManageStudentFormController {
         btnDelete.setDisable(true);
     }
 
-    private void loadAllStudentDetails() {
+    private void loadAllStudentDetails() throws Exception {
         tblStudent.getItems().clear();
         List<StudentDTO> allStudents = manageStudentsBO.getAllStudents();
         for (StudentDTO student : allStudents) {
@@ -137,7 +137,7 @@ public class ManageStudentFormController {
     }
 
 
-    public void btnSaveOnAction(ActionEvent actionEvent) {
+    public void btnSaveOnAction(ActionEvent actionEvent) throws Exception {
         if(btnSave.getText().equalsIgnoreCase("Save")){
             if (existStudent(txtStudentID.getText())){
                 new Alert(Alert.AlertType.WARNING,"Student Already Exists").show();
@@ -181,7 +181,7 @@ public class ManageStudentFormController {
         }
     }
 
-    public void btnDeleteOnAction(ActionEvent actionEvent) {
+    public void btnDeleteOnAction(ActionEvent actionEvent) throws Exception {
         String studentId = tblStudent.getSelectionModel().getSelectedItem().getStudentId();
         if (!existStudent(studentId)){
             new Alert(Alert.AlertType.WARNING,"Student is not Exists !!").show();

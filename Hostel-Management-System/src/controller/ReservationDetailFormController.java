@@ -7,6 +7,9 @@ import com.jfoenix.controls.JFXTextField;
 import dto.ReservationDTO;
 import dto.RoomDTO;
 import dto.StudentDTO;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -15,9 +18,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import view.tm.ReservationTM;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,8 +47,9 @@ public class ReservationDetailFormController {
 
     private final ReservationDetailsBO reservationDetailsBO = (ReservationDetailsBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESERVATIONDETAILS);
 
-    public void initialize() {
+    public void initialize() throws Exception {
         disableFields();
+        loadDateAndTime();
 
         tblReservationDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("resID"));
         tblReservationDetails.getColumns().get(1).setCellValueFactory(new PropertyValueFactory("date"));
@@ -55,15 +63,19 @@ public class ReservationDetailFormController {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Are You Sure ?", ButtonType.YES, ButtonType.NO);
                 Optional<ButtonType> buttonType = alert.showAndWait();
                 if (buttonType.get().equals(ButtonType.YES)) {
-                    if (reservationDetailsBO.removeReservation(param.getValue().getResID())) {
-                        tblReservationDetails.getItems().remove(param.getValue());
-                        new Alert(Alert.AlertType.CONFIRMATION, "Removed..!!").show();
-                        RoomDTO roomDTO = reservationDetailsBO.getRoom(param.getValue().getRoomId());
-                        reservationDetailsBO.updateRoomQty(roomDTO.getRoomId(), roomDTO.getQty() + 1);
+                    try {
+                        if (reservationDetailsBO.removeReservation(param.getValue().getResID())) {
+                            tblReservationDetails.getItems().remove(param.getValue());
+                            new Alert(Alert.AlertType.CONFIRMATION, "Removed..!!").show();
+                            RoomDTO roomDTO = reservationDetailsBO.getRoom(param.getValue().getRoomId());
+                            reservationDetailsBO.updateRoomQty(roomDTO.getRoomId(), roomDTO.getQty() + 1);
 
-                        clearFields();
+                            clearFields();
 
-                        btnUpdate.setDisable(true);
+                            btnUpdate.setDisable(true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             });
@@ -146,7 +158,7 @@ public class ReservationDetailFormController {
         txtGender.clear();
     }
 
-    private void loadAllReservationDetails() {
+    private void loadAllReservationDetails() throws Exception {
         List<ReservationDTO> allReservations = reservationDetailsBO.getAllReservations();
         for (ReservationDTO dto : allReservations) {
             tblReservationDetails.getItems().add(new ReservationTM(dto.getResId(), dto.getDate(), dto.getRoom().getRoomId(), dto.getStudent().getStudentId(), dto.getStatus()));
@@ -167,7 +179,20 @@ public class ReservationDetailFormController {
         }
     }
 
+    private void loadDateAndTime() {
+        lblDate.setText(new SimpleDateFormat("yyy-MM-dd").format(new Date()));
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e->{
+            LocalTime currentTime = LocalTime.now();
+            lblTime.setText(currentTime.getHour()+":"+
+                    currentTime.getMinute()+":"+
+                    currentTime.getSecond());
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
 
+    }
 
 
 

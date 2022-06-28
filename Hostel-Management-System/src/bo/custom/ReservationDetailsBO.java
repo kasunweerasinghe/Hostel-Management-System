@@ -8,9 +8,9 @@ import dto.StudentDTO;
 import java.util.List;
 
 public interface ReservationDetailsBO extends SuperBO {
-    List<ReservationDTO> getAllReservations();
+    List<ReservationDTO> getAllReservations() throws Exception;
 
-    boolean removeReservation(String id);
+    boolean removeReservation(String id) throws Exception;
 
     boolean updateRoomQty(String roomTypeID, int qty);
 

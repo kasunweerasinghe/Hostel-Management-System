@@ -56,7 +56,7 @@ public class ManageRoomFormController {
 
     ManageRoomBO manageRoomBO = (ManageRoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGEROOMS);
 
-    public void initialize() {
+    public void initialize() throws Exception {
         loadDateAndTime();
 
         tblRoom.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("roomId"));
@@ -102,7 +102,7 @@ public class ManageRoomFormController {
 
     }
 
-    private void loadAllRoomDetails() {
+    private void loadAllRoomDetails() throws Exception {
         List<RoomDTO> allRooms = manageRoomBO.getAllRooms();
         for (RoomDTO roomDTO : allRooms) {
             tblRoom.getItems().add(new RoomTM(roomDTO.getRoomId(), roomDTO.getType(), roomDTO.getKeyMoney(), roomDTO.getQty()));
@@ -131,7 +131,7 @@ public class ManageRoomFormController {
 
 
 
-    public void btnSaveOnAction(ActionEvent actionEvent) {
+    public void btnSaveOnAction(ActionEvent actionEvent) throws Exception {
         if (btnSave.getText().equalsIgnoreCase("Add")) {
             ObservableList<RoomTM> items = tblRoom.getItems();
             for (RoomTM item : items) {
@@ -175,7 +175,7 @@ public class ManageRoomFormController {
         }
 
     }
-    public void btnDeleteOnAction(ActionEvent actionEvent) {
+    public void btnDeleteOnAction(ActionEvent actionEvent) throws Exception {
         String roomId = tblRoom.getSelectionModel().getSelectedItem().getRoomId();
 
         Alert alert=new Alert(Alert.AlertType.WARNING,"Are You Sure ?", ButtonType.YES,ButtonType.NO);

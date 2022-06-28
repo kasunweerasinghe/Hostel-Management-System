@@ -13,7 +13,7 @@ public class ManageStudentsBOImpl  implements ManageStudentsBO {
     StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
-    public List<StudentDTO> getAllStudents() {
+    public List<StudentDTO> getAllStudents() throws Exception {
         List<Student> all = studentDAO.getAll();
         List<StudentDTO> studentDTOList = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class ManageStudentsBOImpl  implements ManageStudentsBO {
     }
 
     @Override
-    public boolean deleteStudent(String studentId) {
+    public boolean deleteStudent(String studentId) throws Exception {
         return studentDAO.delete(studentId);
     }
 
@@ -34,12 +34,12 @@ public class ManageStudentsBOImpl  implements ManageStudentsBO {
     }
 
     @Override
-    public boolean saveStudent(StudentDTO dto) {
+    public boolean saveStudent(StudentDTO dto) throws Exception {
         return studentDAO.save(new Student(dto.getStudentId(), dto.getName(), dto.getAddress(), dto.getContactNo(), dto.getDob(), dto.getGender()));
     }
 
     @Override
-    public boolean updateStudent(StudentDTO dto) {
+    public boolean updateStudent(StudentDTO dto) throws Exception {
         return studentDAO.update(new Student(dto.getStudentId(), dto.getName(), dto.getAddress(), dto.getContactNo(), dto.getDob(), dto.getGender()));
     }
 }

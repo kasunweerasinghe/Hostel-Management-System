@@ -21,7 +21,7 @@ public class ReservationDetailsBOImpl implements ReservationDetailsBO {
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
-    public List<ReservationDTO> getAllReservations() {
+    public List<ReservationDTO> getAllReservations() throws Exception {
         List<Reservation> all = reservationDAO.getAll();
         List<ReservationDTO> allReservations=new ArrayList<>();
         for (Reservation reservation : all) {
@@ -31,7 +31,7 @@ public class ReservationDetailsBOImpl implements ReservationDetailsBO {
     }
 
     @Override
-    public boolean removeReservation(String id) {
+    public boolean removeReservation(String id) throws Exception {
         return reservationDAO.delete(id);
     }
 

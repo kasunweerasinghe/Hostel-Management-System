@@ -6,14 +6,14 @@ import dto.RoomDTO;
 import java.util.List;
 
 public interface ManageRoomBO extends SuperBO {
-    List<RoomDTO> getAllRooms();
+    List<RoomDTO> getAllRooms() throws Exception;
 
     boolean updateQty(String roomTypeID, int qty);
 
-    boolean saveRoom(RoomDTO roomDTO);
+    boolean saveRoom(RoomDTO roomDTO) throws Exception;
 
-    boolean updateRoom(RoomDTO roomDTO);
+    boolean updateRoom(RoomDTO roomDTO) throws Exception;
 
-    boolean deleteRoom(String id);
+    boolean deleteRoom(String id) throws Exception;
 
 }

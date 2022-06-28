@@ -21,7 +21,7 @@ public class MakeReservationBOImpl implements MakeReservationBO {
     private final ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.RESERVATION);
 
     @Override
-    public List<StudentDTO> getAllStudents() {
+    public List<StudentDTO> getAllStudents() throws Exception {
         List<Student> all = studentDAO.getAll();
         List<StudentDTO> allStudents=new ArrayList<>();
         for (Student student : all) {
@@ -31,7 +31,7 @@ public class MakeReservationBOImpl implements MakeReservationBO {
     }
 
     @Override
-    public List<RoomDTO> getAllRooms() {
+    public List<RoomDTO> getAllRooms() throws Exception {
         List<Room> all = roomDAO.getAll();
         List<RoomDTO> allRooms=new ArrayList<>();
         for (Room room : all) {
@@ -46,7 +46,7 @@ public class MakeReservationBOImpl implements MakeReservationBO {
     }
 
     @Override
-    public boolean saveStudent(StudentDTO studentDTO) {
+    public boolean saveStudent(StudentDTO studentDTO) throws Exception {
         return studentDAO.save(new Student(studentDTO.getStudentId(),studentDTO.getName(),studentDTO.getAddress(),studentDTO.getContactNo(),studentDTO.getDob(),studentDTO.getGender()));
     }
 
@@ -56,12 +56,12 @@ public class MakeReservationBOImpl implements MakeReservationBO {
     }
 
     @Override
-    public boolean saveReservation(ReservationDTO reservationDTO) {
+    public boolean saveReservation(ReservationDTO reservationDTO) throws Exception {
         return reservationDAO.save(new Reservation(reservationDTO.getResId(),reservationDTO.getDate(),reservationDTO.getStatus(),reservationDTO.getStudent(),reservationDTO.getRoom()));
     }
 
     @Override
-    public List<ReservationDTO> getAllReservations() {
+    public List<ReservationDTO> getAllReservations() throws Exception {
         List<Reservation> all = reservationDAO.getAll();
         List<ReservationDTO> allReservations=new ArrayList<>();
         for (Reservation reservation : all) {
@@ -71,7 +71,7 @@ public class MakeReservationBOImpl implements MakeReservationBO {
     }
 
     @Override
-    public boolean updateRoomDetails(RoomDTO roomDTO) {
+    public boolean updateRoomDetails(RoomDTO roomDTO) throws Exception {
         return roomDAO.update(new Room(roomDTO.getRoomId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty()));
     }
 

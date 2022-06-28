@@ -6,13 +6,13 @@ import dto.StudentDTO;
 import java.util.List;
 
 public interface ManageStudentsBO extends SuperBO {
-    List<StudentDTO> getAllStudents();
+    List<StudentDTO> getAllStudents() throws Exception;
 
-    boolean deleteStudent(String studentId);
+    boolean deleteStudent(String studentId) throws Exception;
 
     boolean checkStudentIsExists(String id);
 
-    boolean saveStudent(StudentDTO dto);
+    boolean saveStudent(StudentDTO dto) throws Exception;
 
-    boolean updateStudent(StudentDTO dto);
+    boolean updateStudent(StudentDTO dto) throws Exception;
 }

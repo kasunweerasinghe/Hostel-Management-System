@@ -55,7 +55,7 @@ public class MakeReservationFormController {
 
     MakeReservationBO makeReservationBO = (MakeReservationBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MAKERESERVATION);
 
-    public void initialize() {
+    public void initialize() throws Exception {
         loadDateAndTime();
         tblReservationDetail.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("resID"));
         tblReservationDetail.getColumns().get(1).setCellValueFactory(new PropertyValueFactory("date"));
@@ -112,7 +112,7 @@ public class MakeReservationFormController {
         loadAllReservationDetails();
     }
 
-    private void loadAllReservationDetails() {
+    private void loadAllReservationDetails() throws Exception {
         List<ReservationDTO> allReservations = makeReservationBO.getAllReservations();
         for (ReservationDTO reservationDTO : allReservations) {
             tblReservationDetail.getItems().add(new ReservationTM(reservationDTO.getResId(),reservationDTO.getDate(),reservationDTO.getRoom().getRoomId(),reservationDTO.getStudent().getStudentId(),reservationDTO.getStatus()));
@@ -152,7 +152,7 @@ public class MakeReservationFormController {
     }
 
 
-    public void btnReservationOnAction(ActionEvent actionEvent) {
+    public void btnReservationOnAction(ActionEvent actionEvent) throws Exception {
         double keyMoney=Double.parseDouble(txtKeyMoney.getText());
         double paidKeyMoney=Double.parseDouble(txtPaidAmount.getText());
         String status="";

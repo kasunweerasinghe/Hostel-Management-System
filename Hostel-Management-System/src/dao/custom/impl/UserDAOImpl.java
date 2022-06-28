@@ -7,35 +7,38 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
+import java.util.HashMap;
 import java.util.List;
 
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl implements UserDAO  {
     @Override
-    public List<User> getAll() {
-        return null;
-    }
-
-    @Override
-    public boolean save(User entity) {
-        return false;
-    }
-
-    @Override
-    public boolean update(User entity) {
+    public boolean save(User entity) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-
-        session.update(entity);
-
+        session.save(entity);
         transaction.commit();
         session.close();
-
         return true;
     }
 
     @Override
-    public boolean delete(String s) {
-        return false;
+    public boolean update(User entity) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(entity);
+        transaction.commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean delete(String s) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(session.load(User.class, s));
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -44,25 +47,50 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User search(String s) {
-        return null;
+    public User search(String id)  {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        User user = session.get(User.class, id);
+        transaction.commit();
+        session.close();
+        return user;
     }
 
     @Override
-    public User getFromUserNameAndPassword(String userName, String password) {
+    public List<User> getAll(){
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-
-        String hql="From User WHERE userName=: user_Name AND password=: Password";
-        Query query = session.createQuery(hql);
-        query.setParameter("user_Name",userName);
-        query.setParameter("Password",password);
-        List<User> users = query.list();
-
+        List<User> list = session.createQuery("FROM User").list();
         transaction.commit();
         session.close();
-
-        return users.get(0);
+        return list;
     }
+
+    @Override
+    public List<User> getMatchingResults(String search) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<User> list = session.createQuery("FROM User WHERE nic Like :NIC OR name LIKE :Name OR userName LIKE :UserName OR password LIKE :Password ")
+                .setParameter("NIC", search)
+                .setParameter("Name", search)
+                .setParameter("UserName", search)
+                .setParameter("Password", search).list();
+        transaction.commit();
+        session.close();
+        return list;
+    }
+
+    @Override
+    public HashMap <String, String> getAllUserNPasswordMap() throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Object[]> list = session.createQuery("SELECT userName, password FROM User").list();
+        transaction.commit();
+        session.close();
+        HashMap<String, String> userMap = new HashMap<>();
+        list.stream().forEach(o -> userMap.put((String)o[0],(String)o[1]));
+        return userMap;
+    }
+
 
 }

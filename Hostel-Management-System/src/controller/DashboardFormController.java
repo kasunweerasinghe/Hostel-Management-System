@@ -39,6 +39,9 @@ public class DashboardFormController {
     }
 
     public void btnUserOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage =(Stage) DashboardFormContext.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UserManagementForm.fxml"))));
+        stage.centerOnScreen();
 
     }
 
