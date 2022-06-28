@@ -9,6 +9,10 @@ public class BOFactory {
 
     }
 
+    public enum BOTypes {
+        LOGIN, MANAGESTUDENTS, MANAGEROOMS, MAKERESERVATION, RESERVATIONDETAILS
+    }
+
     public static BOFactory getBoFactory() {
         return (boFactory == null) ? boFactory = new BOFactory() : boFactory;
     }
@@ -30,8 +34,6 @@ public class BOFactory {
         }
     }
 
-    public enum BOTypes {
-        LOGIN, MANAGESTUDENTS, MANAGEROOMS, MAKERESERVATION, RESERVATIONDETAILS
-    }
+
 
 }

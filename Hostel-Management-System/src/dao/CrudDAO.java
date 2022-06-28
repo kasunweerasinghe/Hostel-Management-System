@@ -14,4 +14,5 @@ public interface CrudDAO<T,ID> extends SuperDAO{
     boolean exist(ID id);
 
     T search(ID id);
+
 }

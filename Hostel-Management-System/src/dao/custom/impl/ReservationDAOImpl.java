@@ -82,6 +82,28 @@ public class ReservationDAOImpl implements ReservationDAO {
         return list.isEmpty() ? "R-001" : String.format("R-%03d", (Integer.parseInt(list.get(0).replace("R-", "")) + 1));
     }
 
+    @Override
+    public boolean updateStatus(String res_id, String status) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String hql="UPDATE Reservation SET status=: new_Status WHERE resId=: reservationId";
+        Query query = session.createQuery(hql);
+        query.setParameter("new_Status",status);
+        query.setParameter("reservationId",res_id);
+
+        int i = query.executeUpdate();
+
+        transaction.commit();
+        session.close();
+
+        if(i>0){
+            return true;
+        }
+        return false;
+    }
+
+
 
 
 }

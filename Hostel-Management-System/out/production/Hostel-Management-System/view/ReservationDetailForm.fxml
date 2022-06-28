@@ -1,14 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.ReservationDetailFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="ReservationDetailsFormContext" prefHeight="584.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReservationDetailFormController">
+   <children>
+      <Label layoutX="14.0" layoutY="20.0" text="Date">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="46.0" text="Time">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="59.0" layoutY="20.0" text="2020/06/21">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="59.0" layoutY="46.0" text="08.34.12">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="764.0" layoutY="30.0" onAction="#btnGoBackOnAction" style="-fx-background-color: #34495e;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold Italic" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Separator layoutY="77.0" prefHeight="4.0" prefWidth="837.0" />
+      <Text fontSmoothingType="LCD" layoutX="234.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation Details" wrappingWidth="414.9404296875">
+         <font>
+            <Font name="Arial Bold" size="38.0" />
+         </font>
+         <fill>
+            <RadialGradient centerY="0.2695575056011949" cycleMethod="REFLECT" focusDistance="-0.024390243902439046" radius="1.0">
+               <stops>
+                  <Stop color="#00d707" />
+                  <Stop color="#250eeb" offset="0.13725490196078433" />
+                  <Stop color="#7a172c" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Text>
+      <JFXTextField fx:id="txtReservationID" editable="false" labelFloat="true" layoutX="22.0" layoutY="137.0" prefHeight="26.0" prefWidth="130.0" promptText="Reservation ID">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtDate" editable="false" labelFloat="true" layoutX="200.0" layoutY="137.0" prefHeight="26.0" prefWidth="130.0" promptText="Date">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtRoomID" editable="false" labelFloat="true" layoutX="376.0" layoutY="137.0" prefHeight="26.0" prefWidth="130.0" promptText="Room ID">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtStatus" labelFloat="true" layoutX="555.0" layoutY="137.0" prefHeight="26.0" prefWidth="130.0" promptText="Status">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="709.0" layoutY="137.0" onAction="#btnUpdateOnAction" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: #27ae60; -fx-background-radius: 8; -fx-border-color: #000000; -fx-border-radius: 8;" text="U P D A T E">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#370cd3" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+      </JFXButton>
+      <JFXTextField fx:id="txtStudentID" editable="false" labelFloat="true" layoutX="22.0" layoutY="194.0" prefHeight="26.0" prefWidth="115.0" promptText="Student ID">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtName" editable="false" labelFloat="true" layoutX="169.0" layoutY="194.0" prefHeight="26.0" prefWidth="115.0" promptText="Name">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtAddress" editable="false" labelFloat="true" layoutX="311.0" layoutY="194.0" prefHeight="26.0" prefWidth="115.0" promptText="Address">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtContact" editable="false" labelFloat="true" layoutX="462.0" layoutY="194.0" prefHeight="26.0" prefWidth="115.0" promptText="Contact">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtDOB" editable="false" labelFloat="true" layoutX="598.0" layoutY="194.0" prefHeight="26.0" prefWidth="115.0" promptText="DOB">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtGender" editable="false" labelFloat="true" layoutX="725.0" layoutY="194.0" prefHeight="26.0" prefWidth="101.0" promptText="Gender">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </JFXTextField>
+      <TableView fx:id="tblReservationDetails" layoutX="10.0" layoutY="279.0" prefHeight="295.0" prefWidth="809.0">
+        <columns>
+          <TableColumn prefWidth="149.0" text="Reservation ID" />
+          <TableColumn prefWidth="150.0" text="Date" />
+            <TableColumn prefWidth="124.0" text="Room ID" />
+            <TableColumn prefWidth="143.0" text="Student ID" />
+            <TableColumn prefWidth="121.0" text="Status" />
+            <TableColumn prefWidth="121.0" text="Option" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
