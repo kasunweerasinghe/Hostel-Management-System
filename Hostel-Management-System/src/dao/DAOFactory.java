@@ -28,7 +28,7 @@ public class DAOFactory {
             case RESERVATION:
                 return new ReservationDAOImpl();
             case USER:
-                //return new UserDAOImpl();
+                return new UserDAOImpl();
             case QUERY:
                 return new QueryDAOImpl();
             default:
