@@ -74,4 +74,10 @@ public class DashboardFormController {
 
 
     }
+
+    public void btnKeyMoneyOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage =(Stage) DashboardFormContext.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/KeyMoneyForm.fxml"))));
+        stage.centerOnScreen();
+    }
 }

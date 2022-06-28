@@ -122,5 +122,18 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="245.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/key-svgrepo-com.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="241.0" layoutY="496.0" onAction="#btnKeyMoneyOnAction" ripplerFill="RED" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8; -fx-border-color: #ffffff; -fx-border-radius: 8;" text="Key Money">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>
