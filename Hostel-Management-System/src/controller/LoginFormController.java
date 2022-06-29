@@ -6,10 +6,12 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class LoginFormController {
     public AnchorPane LogInFormContext;
@@ -23,8 +25,9 @@ public class LoginFormController {
     public void btnLogInOnAction(ActionEvent actionEvent) {
         try {
             if(lBO.checkCredentials(txtUserName.getText(),txtPassword.getText())){
-                LogInFormContext.getChildren().clear();
-                LogInFormContext.getChildren().add(FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml")));
+                Stage stage =(Stage) LogInFormContext.getScene().getWindow();
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"))));
+                stage.centerOnScreen();
             }else{
                 new Alert(Alert.AlertType.WARNING,"Incorrect UserName Or Password", ButtonType.OK).show();
             }
