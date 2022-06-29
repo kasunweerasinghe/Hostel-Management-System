@@ -16,7 +16,7 @@
     <children>
         <Pane prefHeight="79.0" prefWidth="789.0" style="-fx-background-color: #1abc9c;">
             <children>
-                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="628.0" layoutY="23.0" onAction="#btnGoBackOnAction" style="-fx-background-color: #34495e; -fx-background-radius: 8;" text="Log Out" textFill="WHITE">
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="666.0" layoutY="23.0" onAction="#btnGoBackOnAction" style="-fx-background-color: #34495e; -fx-background-radius: 8;" text="Log Out" textFill="WHITE">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
@@ -32,7 +32,7 @@
                         </RadialGradient>
                     </ripplerFill>
                 </JFXButton>
-              <Text fontSmoothingType="LCD" layoutX="192.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="306.9404296875">
+              <Text fontSmoothingType="LCD" layoutX="262.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="306.9404296875">
                   <font>
                       <Font name="Arial Bold" size="38.0" />
                   </font>
@@ -184,5 +184,5 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-    </children
+    </children>
 </AnchorPane>
