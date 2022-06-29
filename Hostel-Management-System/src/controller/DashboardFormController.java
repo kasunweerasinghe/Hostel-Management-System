@@ -1,5 +1,14 @@
 package controller;
 
+import bo.BOFactory;
+import bo.custom.LoginBO;
+import bo.custom.MakeReservationBO;
+import bo.custom.ReservationDetailsBO;
+import bo.custom.impl.ReservationDetailsBOImpl;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
+import dto.RoomDTO;
+import entity.Room;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -16,15 +25,22 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 public class DashboardFormController {
     public AnchorPane DashboardFormContext;
     public Label lblDate;
     public Label lblTime;
+    public JFXComboBox cmbRoomID;
+    public JFXTextField txtQty;
 
-    public void initialize(){
+    MakeReservationBO makeReservationBO = (MakeReservationBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MAKERESERVATION);
+
+    public void initialize() throws Exception {
         loadDateAndTime();
     }
+
+
 
     public void btnRoomOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage =(Stage) DashboardFormContext.getScene().getWindow();

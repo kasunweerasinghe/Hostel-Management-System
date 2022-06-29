@@ -69,6 +69,7 @@ public class MakeReservationFormController {
 
 
         clearFields();
+
         List<StudentDTO> allStudents = makeReservationBO.getAllStudents();
         for (StudentDTO studentDTO : allStudents) {
             cmbStudentID.getItems().add(studentDTO);
@@ -89,6 +90,7 @@ public class MakeReservationFormController {
                 txtContact.setDisable(false);
                 txtDOB.setDisable(false);
                 cmbGender.setDisable(false);
+
                 txtName.setText(newValue.getName());
                 txtAddress.setText(newValue.getAddress());
                 txtContact.setText(newValue.getContactNo());

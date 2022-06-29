@@ -78,7 +78,7 @@ public class UserManagementFormController {
         txtUserName.setText(tm.getUserName());
         txtPassword.setText(tm.getPassword());
         txtConfirmPassword.setText(tm.getPassword());
-        btnAddUser.setText("Update User");
+        btnAddUser.setText("Update");
     }
     private void loadAllUsers(ArrayList<UserDTO> users) {
         ObservableList<UserTM> obList = FXCollections.observableArrayList();

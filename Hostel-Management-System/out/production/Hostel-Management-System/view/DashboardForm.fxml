@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -184,5 +186,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
+      <JFXComboBox fx:id="cmbRoomID" labelFloat="true" layoutX="568.0" layoutY="378.0" prefHeight="27.0" prefWidth="143.0" promptText="roomID" />
+      <JFXTextField fx:id="txtQty" editable="false" layoutX="567.0" layoutY="446.0" />
     </children>
 </AnchorPane>

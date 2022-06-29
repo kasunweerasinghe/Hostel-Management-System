@@ -12,11 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="DashboardFormContext" prefHeight="589.0" prefWidth="831.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
+<AnchorPane fx:id="DashboardFormContext" prefHeight="589.0" prefWidth="780.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
     <children>
-        <Pane prefHeight="79.0" prefWidth="844.0" style="-fx-background-color: #1abc9c;">
+        <Pane prefHeight="79.0" prefWidth="789.0" style="-fx-background-color: #1abc9c;">
             <children>
-                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="729.0" layoutY="23.0" onAction="#btnGoBackOnAction" style="-fx-background-color: #34495e; -fx-background-radius: 8;" text="Log Out" textFill="WHITE">
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="628.0" layoutY="23.0" onAction="#btnGoBackOnAction" style="-fx-background-color: #34495e; -fx-background-radius: 8;" text="Log Out" textFill="WHITE">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
@@ -32,19 +32,33 @@
                         </RadialGradient>
                     </ripplerFill>
                 </JFXButton>
+              <Text fontSmoothingType="LCD" layoutX="192.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="306.9404296875">
+                  <font>
+                      <Font name="Arial Bold" size="38.0" />
+                  </font>
+                  <fill>
+                      <RadialGradient centerY="0.2695575056011949" cycleMethod="REFLECT" focusDistance="-0.024390243902439046" radius="1.0">
+                          <stops>
+                              <Stop color="#00d707" />
+                              <Stop color="#250eeb" offset="0.13725490196078433" />
+                              <Stop color="#7a172c" offset="1.0" />
+                          </stops>
+                      </RadialGradient>
+                  </fill>
+              </Text>
             </children>
         </Pane>
-        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="30.0" layoutY="109.0" pickOnBounds="true">
+        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="104.0" layoutY="109.0" pickOnBounds="true">
             <image>
                 <Image url="@../assert/room-door-svgrepo-com.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="245.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="319.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assert/student-svgrepo-com.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="33.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="104.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assert/user-svgrepo-com.png" />
             </image>
@@ -59,36 +73,22 @@
                 <Font name="Arial Bold" size="14.0" />
             </font>
         </Label>
-        <ImageView fitHeight="124.0" fitWidth="120.0" layoutX="448.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="124.0" fitWidth="120.0" layoutX="522.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assert/doorknob-hotel-svgrepo-com.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="655.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="522.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assert/view-details-svgrepo-com.png" />
             </image>
         </ImageView>
-        <Text fontSmoothingType="LCD" layoutX="310.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="306.9404296875">
-            <font>
-                <Font name="Arial Bold" size="38.0" />
-            </font>
-            <fill>
-                <RadialGradient centerY="0.2695575056011949" cycleMethod="REFLECT" focusDistance="-0.024390243902439046" radius="1.0">
-                    <stops>
-                        <Stop color="#00d707" />
-                        <Stop color="#250eeb" offset="0.13725490196078433" />
-                        <Stop color="#7a172c" offset="1.0" />
-                    </stops>
-                </RadialGradient>
-            </fill>
-        </Text>
-        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="245.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="124.0" fitWidth="129.0" layoutX="319.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assert/key-svgrepo-com.png" />
             </image>
         </ImageView>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="52.0" layoutY="250.0" onAction="#btnRoomOnAction" prefHeight="33.0" prefWidth="87.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="ROOM" textFill="WHITE">
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="126.0" layoutY="250.0" onAction="#btnRoomOnAction" prefHeight="33.0" prefWidth="87.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="ROOM" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="16.0" />
             </font>
@@ -104,7 +104,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="253.0" layoutY="250.0" onAction="#btnStudentOnAction" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="STUDENT" textFill="WHITE">
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="327.0" layoutY="250.0" onAction="#btnStudentOnAction" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="STUDENT" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="16.0" />
             </font>
@@ -120,7 +120,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="444.0" layoutY="249.0" onAction="#btnBookRoomOnAction" prefHeight="33.0" prefWidth="129.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="BOOK ROOM" textFill="WHITE">
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="519.0" layoutY="250.0" onAction="#btnBookRoomOnAction" prefHeight="33.0" prefWidth="129.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="RESERVAION" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="16.0" />
             </font>
@@ -136,7 +136,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="639.0" layoutY="250.0" onAction="#btnReservationDetail" prefHeight="33.0" prefWidth="179.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="BOOKING DETAILS" textFill="WHITE">
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="489.0" layoutY="507.0" onAction="#btnReservationDetail" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="RESERVAION DETAILS" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="16.0" />
             </font>
@@ -152,7 +152,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="52.0" layoutY="507.0" onAction="#btnUserOnAction" prefHeight="33.0" prefWidth="87.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="USER" textFill="WHITE">
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="90.0" layoutY="507.0" onAction="#btnUserOnAction" prefHeight="33.0" prefWidth="144.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="USER MANAGE" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="16.0" />
             </font>
@@ -168,7 +168,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="216.0" layoutY="507.0" onAction="#btnKeyMoneyOnAction" prefHeight="33.0" prefWidth="124.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="KEY MONEY" textFill="WHITE">
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="318.0" layoutY="507.0" onAction="#btnKeyMoneyOnAction" prefHeight="33.0" prefWidth="124.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 8;" text="KEY MONEY" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="16.0" />
             </font>
@@ -184,5 +184,5 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-    </children>
+    </children
 </AnchorPane>
