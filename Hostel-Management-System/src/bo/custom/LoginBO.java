@@ -6,5 +6,6 @@ import entity.User;
 import java.util.List;
 
 public interface LoginBO extends SuperBO {
-    List<User> getAllUsers();
+    boolean checkCredentials(String userName, String password) throws Exception;
+
 }

@@ -45,8 +45,10 @@ public class DashboardFormController {
 
     }
 
-    public void btnGoBackOnAction(ActionEvent actionEvent) {
-
+    public void btnGoBackOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage =(Stage) DashboardFormContext.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/LogInForm.fxml"))));
+        stage.centerOnScreen();
     }
 
 
