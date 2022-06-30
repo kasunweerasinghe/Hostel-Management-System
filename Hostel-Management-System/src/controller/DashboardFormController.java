@@ -34,7 +34,7 @@ public class DashboardFormController {
     public JFXComboBox cmbRoomID;
     public JFXTextField txtQty;
 
-    MakeReservationBO makeReservationBO = (MakeReservationBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MAKERESERVATION);
+    //MakeReservationBO makeReservationBO = (MakeReservationBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESERVATION);
 
     public void initialize() throws Exception {
         loadDateAndTime();

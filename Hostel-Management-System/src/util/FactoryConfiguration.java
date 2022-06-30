@@ -15,18 +15,13 @@ public class FactoryConfiguration {
     private static SessionFactory sessionFactory;
 
     private FactoryConfiguration() {
-        try {
+
             Configuration configuration = new Configuration();
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-            configuration.addAnnotatedClass(Student.class)
-                    .addAnnotatedClass(Room.class)
-                    .addAnnotatedClass(Reservation.class)
-                    .addAnnotatedClass(User.class);
+
+            //added classes
+            configuration.addAnnotatedClass(Student.class).addAnnotatedClass(Room.class).addAnnotatedClass(Reservation.class).addAnnotatedClass(User.class);
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("There is issue in factory Configuration");
-        }
 
     }
 

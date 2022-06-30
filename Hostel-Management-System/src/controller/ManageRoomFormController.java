@@ -54,7 +54,7 @@ public class ManageRoomFormController {
 
 
 
-    ManageRoomBO manageRoomBO = (ManageRoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGEROOMS);
+    ManageRoomBO manageRoomBO = (ManageRoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOM);
 
     public void initialize() throws Exception {
         loadDateAndTime();

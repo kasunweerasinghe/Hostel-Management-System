@@ -59,7 +59,7 @@
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <JFXPasswordField fx:id="txtPassword" focusColor="#405aa800" layoutX="258.0" layoutY="244.0" onAction="#checkCredentials" prefHeight="43.0" prefWidth="293.0" style="-fx-background-color: #F7F7F9; -fx-border-color: #F8F8F9; -fx-background-radius: 3; -fx-border-radius: 3;" unFocusColor="#4d4d4d00">
+      <JFXPasswordField fx:id="txtPassword" focusColor="#405aa800" layoutX="258.0" layoutY="244.0" prefHeight="43.0" prefWidth="293.0" style="-fx-background-color: #F7F7F9; -fx-border-color: #F8F8F9; -fx-background-radius: 3; -fx-border-radius: 3;" unFocusColor="#4d4d4d00">
          <font>
             <Font name="Arial" size="15.0" />
          </font>

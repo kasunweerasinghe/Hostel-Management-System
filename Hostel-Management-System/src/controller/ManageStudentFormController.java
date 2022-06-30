@@ -54,7 +54,7 @@ public class ManageStudentFormController {
     public TableColumn colGender;
     LinkedHashMap<JFXTextField, Pattern> map = new LinkedHashMap<>();
 
-    ManageStudentsBO manageStudentsBO = (ManageStudentsBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGESTUDENTS);
+    ManageStudentsBO manageStudentsBO = (ManageStudentsBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENTS);
 
 
     public void initialize() throws Exception {

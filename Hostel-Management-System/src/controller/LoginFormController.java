@@ -48,6 +48,4 @@ public class LoginFormController {
         txtPassword.requestFocus();
     }
 
-    public void checkCredentials(ActionEvent actionEvent) {
-    }
 }

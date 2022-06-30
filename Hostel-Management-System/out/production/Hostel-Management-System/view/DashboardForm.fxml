@@ -32,7 +32,7 @@
                         </RadialGradient>
                     </ripplerFill>
                 </JFXButton>
-              <Text fontSmoothingType="LCD" layoutX="192.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="306.9404296875">
+              <Text fontSmoothingType="LCD" layoutX="262.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="306.9404296875">
                   <font>
                       <Font name="Arial Bold" size="38.0" />
                   </font>

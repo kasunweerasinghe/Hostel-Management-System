@@ -32,6 +32,20 @@
                   </RadialGradient>
                </ripplerFill>
             </JFXButton>
+            <Text fontSmoothingType="LCD" layoutX="261.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remain Key Money" wrappingWidth="369.9404296875">
+               <font>
+                  <Font name="Arial Bold" size="38.0" />
+               </font>
+               <fill>
+                  <RadialGradient centerY="0.2695575056011949" cycleMethod="REFLECT" focusDistance="-0.024390243902439046" radius="1.0">
+                     <stops>
+                        <Stop color="#00d707" />
+                        <Stop color="#250eeb" offset="0.13725490196078433" />
+                        <Stop color="#7a172c" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Text>
          </children>
       </Pane>
       <Label layoutX="14.0" layoutY="16.0" text="Date">
@@ -54,20 +68,6 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <Text fontSmoothingType="LCD" layoutX="299.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Key Money" wrappingWidth="306.9404296875">
-         <font>
-            <Font name="Arial Bold" size="38.0" />
-         </font>
-         <fill>
-            <RadialGradient centerY="0.2695575056011949" cycleMethod="REFLECT" focusDistance="-0.024390243902439046" radius="1.0">
-               <stops>
-                  <Stop color="#00d707" />
-                  <Stop color="#250eeb" offset="0.13725490196078433" />
-                  <Stop color="#7a172c" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </fill>
-      </Text>
       <TableView fx:id="tblKeyMoney" layoutX="5.0" layoutY="154.0" prefHeight="418.0" prefWidth="836.0">
         <columns>
           <TableColumn prefWidth="84.0" text="Student ID" />
